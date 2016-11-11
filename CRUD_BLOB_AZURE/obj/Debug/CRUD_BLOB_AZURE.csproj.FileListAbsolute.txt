@@ -1,0 +1,1 @@
+C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\CRUD_BLOB_AZURE\CRUD_BLOB_AZURE\bin\Debug\CRUD_BLOB_AZURE.exe.config
