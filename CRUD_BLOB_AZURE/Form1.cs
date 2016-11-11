@@ -78,5 +78,44 @@ namespace CRUD_BLOB_AZURE
                 textBox1.Text = ofd.SafeFileName;
             }
         }
+
+        private void btn_envoyer_Click(object sender, EventArgs e)
+        {
+            if (!(String.IsNullOrEmpty(textBox1.Text)) || !(String.IsNullOrEmpty(textBox3.Text)))
+            {
+                //envoyer le blob dans le cloud
+
+                // Récupérer le compte de stockage à partir de la chaîne de connexion.
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+                // Créer le client blob.
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+                // Récupère la référence d'un conteneur créé précédemment.
+                CloudBlobContainer container = blobClient.GetContainerReference(textBox3.Text);
+                
+                container.CreateIfNotExists();
+
+                container.SetPermissions(
+                    new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
+                
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(textBox1.Text);
+                
+                using (var fileStream = System.IO.File.OpenRead(@textBox2.Text))
+                {
+                    //envoyer le blob dur le cloud
+                    blockBlob.UploadFromStream(fileStream);
+                }
+
+
+                MessageBox.Show("Blob envoyé avec succé !");
+
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+
+            }
+        }
     }
 }

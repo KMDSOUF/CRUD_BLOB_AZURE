@@ -140,6 +140,7 @@
             this.btn_envoyer.TabIndex = 3;
             this.btn_envoyer.Text = "Envoyer";
             this.btn_envoyer.UseVisualStyleBackColor = true;
+            this.btn_envoyer.Click += new System.EventHandler(this.btn_envoyer_Click);
             // 
             // btn_actualiser
             // 
