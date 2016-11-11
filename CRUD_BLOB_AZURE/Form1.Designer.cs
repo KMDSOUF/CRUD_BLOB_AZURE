@@ -131,6 +131,7 @@
             this.btn_supprimer.TabIndex = 10;
             this.btn_supprimer.Text = "Supprimer";
             this.btn_supprimer.UseVisualStyleBackColor = true;
+            this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click);
             // 
             // btn_envoyer
             // 

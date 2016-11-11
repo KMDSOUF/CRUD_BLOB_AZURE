@@ -117,5 +117,37 @@ namespace CRUD_BLOB_AZURE
 
             }
         }
+
+        private void btn_supprimer_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView1.SelectedRows.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Etes vous sur de vouloir supprimer ce blob?", "Verification", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string nom = textBox1.Text;
+                    string conteneur = textBox3.Text;
+                    
+                    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+                    
+                    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                    
+                    CloudBlobContainer container = blobClient.GetContainerReference(conteneur);
+                    
+                    CloudBlockBlob blockBlob = container.GetBlockBlobReference(nom);
+
+                    // Supprimer le blob.
+                    blockBlob.Delete();
+
+                    MessageBox.Show("Blob supprimé avec succé !");
+
+                    this.chargement();
+
+                    textBox1.Text = "";
+                }
+
+            }
+        }
     }
 }
