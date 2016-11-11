@@ -149,5 +149,22 @@ namespace CRUD_BLOB_AZURE
 
             }
         }
+
+        private void btn_vider_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_actualiser_Click(object sender, EventArgs e)
+        {
+            if (!(String.IsNullOrEmpty(textBox3.Text)))
+            {
+                this.chargement();
+            }
+            else
+            {
+                MessageBox.Show("Entrez un conteneur !");
+            }
+        }
     }
 }

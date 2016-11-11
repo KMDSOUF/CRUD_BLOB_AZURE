@@ -122,6 +122,7 @@
             this.btn_vider.TabIndex = 11;
             this.btn_vider.Text = "Vider";
             this.btn_vider.UseVisualStyleBackColor = true;
+            this.btn_vider.Click += new System.EventHandler(this.btn_vider_Click);
             // 
             // btn_supprimer
             // 
@@ -151,6 +152,7 @@
             this.btn_actualiser.TabIndex = 10;
             this.btn_actualiser.Text = "Charger la table";
             this.btn_actualiser.UseVisualStyleBackColor = true;
+            this.btn_actualiser.Click += new System.EventHandler(this.btn_actualiser_Click);
             // 
             // label3
             // 
