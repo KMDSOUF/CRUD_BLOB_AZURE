@@ -208,6 +208,7 @@
             this.btn_parcourir.TabIndex = 0;
             this.btn_parcourir.Text = "Parcourir";
             this.btn_parcourir.UseVisualStyleBackColor = true;
+            this.btn_parcourir.Click += new System.EventHandler(this.btn_parcourir_Click);
             // 
             // Form1
             // 
@@ -217,7 +218,8 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "CRUD_BLOB_AZURE";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
