@@ -152,7 +152,11 @@ namespace CRUD_BLOB_AZURE
 
         private void btn_vider_Click(object sender, EventArgs e)
         {
-
+            //vider les champs
+            this.dataGridView1.Rows.Clear();
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
         }
 
         private void btn_actualiser_Click(object sender, EventArgs e)
@@ -165,6 +169,12 @@ namespace CRUD_BLOB_AZURE
             {
                 MessageBox.Show("Entrez un conteneur !");
             }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            textBox3.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
         }
     }
 }
